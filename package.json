@@ -1,0 +1,20 @@
+{
+  "name": "sslog",
+  "version": "0.1.0",
+  "description": "A simple logger",
+  "main": "log.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sydneystockholm/sslog"
+  },
+  "keywords": [
+    "log",
+    "logging",
+    "logger"
+  ],
+  "dependencies": {
+    "moment": "*"
+  },
+  "author": "Sydney Stockholm <opensource@sydneystockholm.com>",
+  "license": "MIT"
+}
