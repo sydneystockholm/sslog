@@ -1,7 +1,5 @@
 var util = require('util')
   , fs = require('fs')
-  , tty = require('tty')
-  , moment = require('moment')
   , disable_colours = process.env.NODE_DISABLE_COLORS
   , log = exports;
 
@@ -50,10 +48,10 @@ if (process.env.LOG_FILE) {
 
 log.output = function (type, msg) {
     var args = Array.prototype.slice.call(arguments, 1)
-      , date = moment().format('YYYY-MM-DD HH:mm:ss');
+      , date = new Date().toISOString().replace('T', ' ').replace('Z', '');
     msg = util.format.apply(util, args);
     if (!disable_colours) {
-        type = util.format(levels[type].color, levels[type].alias)
+        type = util.format(levels[type].color, levels[type].alias);
     } else {
         type = levels[type].alias;
     }
@@ -74,11 +72,11 @@ log.output = function (type, msg) {
 
 log.newline = function () {
     stream.write('\n');
-}
+};
 
 log.write = function (msg) {
     stream.write(msg);
-}
+};
 
 /**
  * Create a function for each log level

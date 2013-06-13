@@ -1,6 +1,6 @@
 {
   "name": "sslog",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A simple logger",
   "main": "log.js",
   "repository": {
@@ -12,9 +12,7 @@
     "logging",
     "logger"
   ],
-  "dependencies": {
-    "moment": "*"
-  },
+  "dependencies": {},
   "author": "Sydney Stockholm <opensource@sydneystockholm.com>",
   "license": "MIT"
 }
