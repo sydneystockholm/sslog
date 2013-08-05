@@ -57,12 +57,12 @@ log.output = function (type, msg) {
     }
     msg.split('\n').forEach(function (msg) {
         msg = util.format(
-            '[%s] %s %s\n'
+            '[%s] %s %s'
           , date
           , type
           , msg
         );
-        stream.write(msg);
+        log.write(msg);
     });
 };
 
@@ -75,7 +75,7 @@ log.newline = function () {
 };
 
 log.write = function (msg) {
-    stream.write(msg);
+    stream.write(msg + '\n');
 };
 
 /**
