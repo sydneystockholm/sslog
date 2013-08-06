@@ -48,7 +48,8 @@ if (process.env.LOG_FILE) {
 
 log.output = function (type, msg) {
     var args = Array.prototype.slice.call(arguments, 1)
-      , date = new Date().toISOString().replace('T', ' ').replace('Z', '');
+      , date = new Date().toISOString().replace('T', ' ').replace('Z', '')
+      , self = this;
     msg = util.format.apply(util, args);
     if (!disable_colours) {
         type = util.format(levels[type].color, levels[type].alias);
@@ -62,7 +63,7 @@ log.output = function (type, msg) {
           , type
           , msg
         );
-        log.write(msg);
+        self.write(msg);
     });
 };
 
@@ -86,7 +87,7 @@ Object.keys(levels).forEach(function (type) {
     log[type] = function () {
         if (levels[type].level > log.level) return;
         var args = [type].concat(Array.prototype.slice.call(arguments));
-        log.output.apply(this, args);
+        this.output.apply(this, args);
     };
 });
 
